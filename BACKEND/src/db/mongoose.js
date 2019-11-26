@@ -1,9 +1,7 @@
 const mongoose = require('mongoose')
 
-const connect = require('../models/config.js')
-
 // revisa tu connectionURL aqui :-)
-const connectionURL = process.env.connectURL || connect.connectionURL
+const connectionURL = process.env.DB_CONNECTION_STRING || require('../config.js').connectionURL
 
 
 
