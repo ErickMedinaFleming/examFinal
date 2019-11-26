@@ -23,7 +23,7 @@ function loadTodos() {
         // aqui va su código para agregar los elementos de la lista
         console.log(data[i].description)
         // algo asi:
-        // addTodo(data[i]._id, data[i].description, data[i].completed)
+         addTodo(data[i]._id, data[i].description, data[i].completed)
         // no tienen que usar la funcion de addTodo, es un ejemplo
       }
     },
@@ -53,7 +53,7 @@ input.addEventListener('keypress', function (event) {
     };
     json_to_send = JSON.stringify(json_to_send);
     $.ajax({
-      url: 'http://localhost:3000/todos',
+      url: 'https://abqustodo.heroku.com/todos',
       // url: 'https://tuapp.herokuapp.com/todos',
       headers: {
           'Content-Type':'application/json',
@@ -77,5 +77,5 @@ input.addEventListener('keypress', function (event) {
 
 
 function addTodo(id, todoText, completed) {
-  
+  document.getElementById("todo-list").innerHTML += `<li><input type="checkbox" name="todo" value=\"` + completed +`\"><span>` + todoText + `</span></li>`;
 }
